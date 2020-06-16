@@ -6,6 +6,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
+    tags: ["tag1", "tag2", "tag3"],
 
     // imageURL: "https://picsum.photos/200", //this will geenerate some randomm 200*200 image
   };
@@ -25,13 +26,20 @@ class Counter extends Component {
         <span className={this.getBadgeClasses()}> {this.formatCount()} </span>
         {/* badge badge-primary are bootstrap classes, m-2 is margin 2 that gives margins between button and text */}
         <button className="btn btn-secondary btn-sm"> Increment </button>{" "}
+        <ul>
+          {this.state.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
       </div>
     );
   }
 
   getBadgeClasses() {
-    let classes = "badge m-2 badge-"; //properties that will be in common, irrespective of the count value
+    let classes = "badge m-2 badge-";
+    //classes contains properties that will be in common, irrespective of the count value
     //since classes has to be changed, it cant be a const, so let
+
     classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
   }
@@ -43,5 +51,6 @@ class Counter extends Component {
 }
 
 //the above is a simple component that when rendered, returns what is inside return();
+
 export default Counter;
 //we can remove the above line and make line 4 as: export default class Counter extends Component
