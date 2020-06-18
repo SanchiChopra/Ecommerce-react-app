@@ -10,6 +10,22 @@ class Counters extends Component {
       { id: 4, value: 0 },
     ],
   };
+  handleIncrement = (counter) => {
+    const counters = [...this.state.counters]; //cloning the counters array, this will modify the original counters[] attributes only
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    this.setState({ counters });
+  };
+
+  handleReset = () => {
+    const counters = this.state.counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ counters });
+  };
+
   //since counters array is under state of counters component, counters should be handling the event of deletion
   handleDelete = (counterId) => {
     const counters = this.state.counters.filter((c) => c.id !== counterId);
@@ -18,10 +34,17 @@ class Counters extends Component {
   render() {
     return (
       <div>
+        <button
+          onClick={this.handleReset}
+          className="btn btn-primary btn-sm m-2"
+        >
+          Reset
+        </button>
         {this.state.counters.map((counter) => (
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             counter={counter}
           />
           // {/* <h4>Counter #{counter.id}</h4> */}
