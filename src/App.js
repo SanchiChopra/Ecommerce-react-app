@@ -12,6 +12,15 @@ class App extends Component {
       { id: 4, value: 0 },
     ],
   };
+  constructor() {
+    super();
+    console.log('App Constructor');
+  }
+
+  componentDidMount() {
+    console.log('App-mounted');
+  }
+
   handleIncrement = (counter) => {
     const counters = [...this.state.counters]; //cloning the counters array, this will modify the original counters[] attributes only
     const index = counters.indexOf(counter);
@@ -34,6 +43,7 @@ class App extends Component {
     this.setState({ counters });
   };
   render() {
+    console.log('App-Rendered')
   return (
     <React.Fragment>
     <NavBar totalCounters= {this.state.counters.filter(c => c.value>0).length} />

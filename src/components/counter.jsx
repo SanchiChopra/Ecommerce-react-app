@@ -43,6 +43,7 @@ class Counter extends Component {
   //   }; //this funcn not needed since  product is passed in this.handleIncrement()
   render() {
     // console.log("props", this.props);
+    console.log("Counter Rendered");
     return (
       <div>
         {" "}
