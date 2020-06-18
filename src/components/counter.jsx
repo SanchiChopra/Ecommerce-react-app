@@ -5,7 +5,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
     // tags: [],
 
     // imageURL: "https://picsum.photos/200", //this will geenerate some randomm 200*200 image
@@ -36,12 +36,13 @@ class Counter extends Component {
   //   }
   handleIncrement = (product) => {
     console.log(product);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
-  doHandleIncrement = () => {
-    this.handleIncrement({ id: 1 });
-  }; //this funcn not needed since  product is passed in this.handleIncrement()
+  //   doHandleIncrement = () => {
+  //     this.handleIncrement({ id: 1 });
+  //   }; //this funcn not needed since  product is passed in this.handleIncrement()
   render() {
+    // console.log("props", this.props);
     return (
       <div>
         {" "}
@@ -49,7 +50,7 @@ class Counter extends Component {
         <span className={this.getBadgeClasses()}> {this.formatCount()} </span>
         {/* badge badge-primary are bootstrap classes, m-2 is margin 2 that gives margins between button and text */}
         <button
-          onClick={() => this.handleIncrement({ id: 1 })}
+          onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
           {" "}
@@ -66,13 +67,13 @@ class Counter extends Component {
     //classes contains properties that will be in common, irrespective of the count value
     //since classes has to be changed, it cant be a const, so let
 
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count; //we can return an <h1> element here or a string in "" or a const anything
+    const { value } = this.state;
+    return value === 0 ? "Zero" : value; //we can return an <h1> element here or a string in "" or a const anything
   }
 }
 
