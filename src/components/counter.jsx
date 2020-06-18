@@ -48,6 +48,10 @@ class Counter extends Component {
     // if(prevProps.counter.value !== this.props.counter.value)
     //make AJAX call and get new data from the server
   }
+
+  componentWillUnmount() {
+    console.log("Counter - Unmount");
+  }
   render() {
     // console.log("props", this.props);
     console.log("Counter Rendered");
