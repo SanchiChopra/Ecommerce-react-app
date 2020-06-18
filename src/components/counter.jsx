@@ -6,7 +6,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    tags: [],
+    // tags: [],
 
     // imageURL: "https://picsum.photos/200", //this will geenerate some randomm 200*200 image
   };
@@ -18,43 +18,58 @@ class Counter extends Component {
   //     fontWeight: "bold",
   //   };
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p> There are no tags! </p>;
-    return (
-      <ul>
-        {this.state.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    );
-  }
+  //   renderTags() {
+  //     if (this.state.tags.length === 0) return <p> There are no tags! </p>;
+  //     return (
+  //       <ul>
+  //         {this.state.tags.map((tag) => (
+  //           <li key={tag}>{tag}</li>
+  //         ))}
+  //       </ul>
+  //     );
+  //   }
+
+  //   constructor() {
+  //     super();
+  //     //call to base constructor is necessary
+  //     this.handleIncrement = this.handleIncrement.bind(this);
+  //   }
+  handleIncrement = () => {
+    console.log("Increment Clicked", this);
+  };
   render() {
     return (
       <div>
         {" "}
         {/* <img src={this.state.imageURL} alt="" /> */}
-        {/* <span className={this.getBadgeClasses()}> {this.formatCount()} </span> */}
+        <span className={this.getBadgeClasses()}> {this.formatCount()} </span>
         {/* badge badge-primary are bootstrap classes, m-2 is margin 2 that gives margins between button and text */}
-        {/* <button className="btn btn-secondary btn-sm"> Increment </button>{" "} */}
-        {this.state.tags.length === 0 && "Please create a new tag!"}
-        {this.renderTags()}
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          {" "}
+          Increment{" "}
+        </button>{" "}
+        {/* {this.state.tags.length === 0 && "Please create a new tag!"}
+        {this.renderTags()} */}
       </div>
     );
   }
 
-  //   getBadgeClasses() {
-  //     let classes = "badge m-2 badge-";
-  //     //classes contains properties that will be in common, irrespective of the count value
-  //     //since classes has to be changed, it cant be a const, so let
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    //classes contains properties that will be in common, irrespective of the count value
+    //since classes has to be changed, it cant be a const, so let
 
-  //     classes += this.state.count === 0 ? "warning" : "primary";
-  //     return classes;
-  //   }
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
 
-  //   formatCount() {
-  //     const { count } = this.state;
-  //     return count === 0 ? "Zero" : count; //we can return an <h1> element here or a string in "" or a const anything
-  //   }
+  formatCount() {
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count; //we can return an <h1> element here or a string in "" or a const anything
+  }
 }
 
 //the above is a simple component that when rendered, returns what is inside return();
