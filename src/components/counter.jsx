@@ -41,6 +41,13 @@ class Counter extends Component {
   //   doHandleIncrement = () => {
   //     this.handleIncrement({ id: 1 });
   //   }; //this funcn not needed since  product is passed in this.handleIncrement()
+  componentDidUpdate(prevProps, prevState) {
+    //this can help us decide whether to make ajax call based on the change in 2 parameters
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    // if(prevProps.counter.value !== this.props.counter.value)
+    //make AJAX call and get new data from the server
+  }
   render() {
     // console.log("props", this.props);
     console.log("Counter Rendered");
