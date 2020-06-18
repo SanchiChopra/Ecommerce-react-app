@@ -34,9 +34,13 @@ class Counter extends Component {
   //     //call to base constructor is necessary
   //     this.handleIncrement = this.handleIncrement.bind(this);
   //   }
-  handleIncrement = () => {
-    console.log("Increment Clicked", this);
+  handleIncrement = (product) => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
   };
+  //   doHandleIncrement = () => {
+  //     this.handleIncrement({ id: 1 });
+  //   };   //this funcn not needed since  product is passed in this.handleIncrement()
   render() {
     return (
       <div>
@@ -45,7 +49,7 @@ class Counter extends Component {
         <span className={this.getBadgeClasses()}> {this.formatCount()} </span>
         {/* badge badge-primary are bootstrap classes, m-2 is margin 2 that gives margins between button and text */}
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement(product)}
           className="btn btn-secondary btn-sm"
         >
           {" "}
