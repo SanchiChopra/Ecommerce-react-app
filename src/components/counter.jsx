@@ -42,11 +42,12 @@ class Counter extends Component {
   //     this.handleIncrement({ id: 1 });
   //   }; //this funcn not needed since  product is passed in this.handleIncrement()
   render() {
-    // console.log("props", this.props);
+    console.log("props", this.props);
     return (
       <div>
         {" "}
         {/* <img src={this.state.imageURL} alt="" /> */}
+        {this.props.children}
         <span className={this.getBadgeClasses()}> {this.formatCount()} </span>
         {/* badge badge-primary are bootstrap classes, m-2 is margin 2 that gives margins between button and text */}
         <button
