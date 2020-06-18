@@ -47,7 +47,7 @@ class Counter extends Component {
       <div>
         {" "}
         {/* <img src={this.state.imageURL} alt="" /> */}
-        {this.props.children}
+        {/* {this.props.children} */}
         <span className={this.getBadgeClasses()}> {this.formatCount()} </span>
         {/* badge badge-primary are bootstrap classes, m-2 is margin 2 that gives margins between button and text */}
         <button
@@ -57,6 +57,12 @@ class Counter extends Component {
           {" "}
           Increment{" "}
         </button>{" "}
+        <button
+          onClick={this.props.onDelete}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
         {/* {this.state.tags.length === 0 && "Please create a new tag!"}
         {this.renderTags()} */}
       </div>

@@ -10,13 +10,22 @@ class Counters extends Component {
       { id: 4, value: 0 },
     ],
   };
+  //since counters array is under state of counters component, counters should be handling the event of deletion
+  handleDelete = () => {
+    console.log("Event Handler Called");
+  };
   render() {
     return (
       <div>
         {this.state.counters.map((counter) => (
-          <Counter key={counter.id} value={counter.value} selected>
-            <h4>Counter #{counter.id}</h4>
-          </Counter>
+          <Counter
+            key={counter.id}
+            onDelete={this.handleDelete}
+            value={counter.value}
+            selected
+          />
+          // {/* <h4>Counter #{counter.id}</h4> */}
+          //   {/* </Counter> */}
         ))}
       </div>
     );
