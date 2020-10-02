@@ -13,12 +13,12 @@ class App extends Component {
     ],
   };
   constructor() {
-    super();
+    super(); //required
     console.log('App Constructor');
   }
 
   componentDidMount() {
-    console.log('App-mounted');
+    console.log('App-mounted'); //successful mounting
   }
 
   handleIncrement = (counter) => {
