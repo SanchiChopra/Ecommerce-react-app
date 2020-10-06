@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App'; //main app component
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 // no {} needed around Counter above because it is the default module exported by react
 
 //the extension .jsx offers a better code completion than .js
-
+//always use .jsx 
 ReactDOM.render(
   <React.StrictMode>
     <App />
