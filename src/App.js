@@ -51,6 +51,7 @@ class App extends Component {
       <Counters counters={this.state.counters} onReset={this.handleReset} onIncrement={this.handleIncrement} onDelete={this.handleDelete}/>
     </main>
     </React.Fragment>
+    //component to return multiple elements
   );
   }
 }
